@@ -4,15 +4,12 @@
 
 import java.awt.*;
 import java.awt.event.*;
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 import javax.swing.*;
  
-class AutoCompleteStudent extends JFrame implements KeyListener { 
+class WordPredictorTesterGUI extends JFrame implements KeyListener { 
 
 	private static final long serialVersionUID = 1L;
 	
@@ -23,9 +20,9 @@ class AutoCompleteStudent extends JFrame implements KeyListener {
 	String current = "";
 	String temp = "";
 	ArrayList<String> popular;
-   Trie2 tr = new Trie2();
+   Trie tr = new Trie();
    
-	public AutoCompleteStudent() {
+	public WordPredictorTesterGUI() {
 		JFrame frame = new JFrame("Predictive Application");   
       frame.setSize(640,640);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -187,16 +184,6 @@ class AutoCompleteStudent extends JFrame implements KeyListener {
 		return index;
 			
 	}
-	private String arrtoString(String a[]) {
-		String ret = "";
-		ret += "-->" + a[0] + "  ";
-		for(int i = 1; i < a.length; i ++) {
-			ret += i + ":" + a[i] + "  ";
-			if (i == 4)
-				ret += "\n        ";
-		}
-		return ret;
-	}
 	
 	// this displays the list of most frequently used words in the bottom window
 	private String arrtoString(ArrayList<String> a) {
@@ -227,8 +214,7 @@ class AutoCompleteStudent extends JFrame implements KeyListener {
 	public static void main(String[] args) throws IOException {
 		
       System.out.println("Initializing .....");
-		new AutoCompleteStudent();
+		new WordPredictorTesterGUI();
 		System.out.println("Done Intialization and Ready to type in!");
 	}
 }
-

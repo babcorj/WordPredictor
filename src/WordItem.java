@@ -1,7 +1,5 @@
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.Iterator;
-import java.util.ArrayList;
 
 /*
  * Each WordItem represent a word extracted from the text file.
@@ -15,6 +13,7 @@ import java.util.ArrayList;
  *  
  */
 
+@SuppressWarnings("rawtypes")
 public class WordItem implements Comparable {
 	private String word;
 	private int count;
