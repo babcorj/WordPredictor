@@ -7,7 +7,7 @@
 import java.util.*;
 import java.io.IOException;
 
-public class Trie2 {
+public class Trie {
 	
 	private class TrieNode {
 		Map<Character, TrieNode> children = new TreeMap<>();//Unlike hash table, keys in TreeMap are sorted! 
@@ -18,7 +18,7 @@ public class Trie2 {
 	private TrieNode root;
 	private ArrayList<WordItem> dict;
    
-   public Trie2() {
+   public Trie() {
 		this.root = new TrieNode();
       this.dict = new ArrayList<WordItem>();
 	}
@@ -120,11 +120,10 @@ public class Trie2 {
       
       int nextIndex = firstIndex;
       String nword = ""; // next word
-      String fword = dict.get(firstIndex).getWord(); // first word
       while(nextIndex < dict.size()-1) 
       {
          nword = dict.get(nextIndex+1).getWord();
-         if(s.length() > nword.length()) break;
+         if(nword.length() < s.length()) break;
          if(s.compareTo(nword.substring(0, s.length()) ) != 0 ) {
             break;
          }
@@ -170,7 +169,7 @@ public class Trie2 {
 	// Usage example
 	public static void main(String[] args) {
 		        
-		Trie2 tr = new Trie2();
+		Trie tr = new Trie();
 		
       try {
          tr.insertDictionary("files/dictsmall.txt");
@@ -180,7 +179,7 @@ public class Trie2 {
          System.exit(0);
       }
       int low = tr.lowIndex("ba");
-      int high = tr.highIndex("ba", low);
+      tr.highIndex("ba", low);//potentially delete this...
       
       
       
